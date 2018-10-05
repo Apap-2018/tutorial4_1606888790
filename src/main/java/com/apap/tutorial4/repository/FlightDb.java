@@ -11,5 +11,5 @@ import com.apap.tutorial4.model.FlightModel;
 
 @Repository
 public interface FlightDb extends JpaRepository<FlightModel, Long> {
-
+	FlightModel findByFlightNumber(String flightNumber);
 }

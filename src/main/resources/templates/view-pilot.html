@@ -8,9 +8,11 @@
 		<h3 th:text="'Pilot Name : ' +${pilot.name}"></h3>
 		<h3 th:text="'Fly Hour : ' +${pilot.flyHour}"></h3>
 		
+		<td><a th:href="@{|/pilot/delete/${pilot.licenseNumber}|}">Delete Pilot</a></td>
+		<br><br>
 		<td><a th:href="@{|/flight/add/${pilot.licenseNumber}|}">Add Flight</a></td>
 		<br><br>
-		<td><a th:href="@{/}">Home</a></td>
+		<td><a th:href="@{/}">Kembali ke Home</a></td>
 	
 		<h3>Daftar Penerbangan :</h3>
 		<div th:each="penerbangan : ${penerbanganPilot}">
@@ -18,6 +20,8 @@
 			<p th:text="'Origin : ' +${penerbangan.origin}"></p>
 			<p th:text="'Destination : ' +${penerbangan.destination}"></p>
 			<p th:text="'Time : ' +${penerbangan.time}"></p>
+			
+			<td><a th:href="@{|/flight/delete/${penerbangan.flightNumber}|}">Delete Flight</a></td>
 			<br>
 		</div>
 	

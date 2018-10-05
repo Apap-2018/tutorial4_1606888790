@@ -22,4 +22,17 @@ public class FlightServiceImpl implements FlightService {
 		flightDb.save(flight);
 	}
 
+	@Override
+	public void deleteFlight(FlightModel flight) {
+		flightDb.delete(flight);
+		
+	}
+
+	@Override
+	public FlightModel getFlightDetailByFlightNumber(String flightNumber) {
+		return flightDb.findByFlightNumber(flightNumber);
+	}
+	
+	
+
 }
