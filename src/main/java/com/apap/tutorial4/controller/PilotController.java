@@ -41,6 +41,7 @@ public class PilotController {
 	private String viewPilot(@RequestParam("licenseNumber") String licenseNumber, Model model) {
 		PilotModel pilotNya = pilotService.getPilotDetailByLicenseNumber(licenseNumber);
 		model.addAttribute("pilot", pilotNya);
+		model.addAttribute("penerbanganPilot", pilotNya.getPilotFlight());
 		return "view-pilot";
 	}
 }
