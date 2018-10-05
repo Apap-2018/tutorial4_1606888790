@@ -1,5 +1,8 @@
 package com.apap.tutorial4.service;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,6 +34,17 @@ public class FlightServiceImpl implements FlightService {
 	@Override
 	public FlightModel getFlightDetailByFlightNumber(String flightNumber) {
 		return flightDb.findByFlightNumber(flightNumber);
+	}
+
+	@Override
+	public List<FlightModel> getAllFlightByFlightNumber(String flightNumber) {
+		List<FlightModel> allFlight  = flightDb.findAll();
+        List<FlightModel> byFlightNumber = new LinkedList<>();
+        for (FlightModel flight : allFlight){
+            if (flight.getFlightNumber().equalsIgnoreCase(flightNumber))
+                byFlightNumber.add(flight);
+        }
+        return byFlightNumber;
 	}
 	
 	

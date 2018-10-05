@@ -17,6 +17,14 @@
 		<input type="text" name="licenseNumber" />
 		<button type="submit">Cari</button>
 	</form>
+	<br>
+	<h3>Cari Penerbangan berdasarkan Nomor Penerbangan</h3>
+	<form th:action="@{/flight/view}" method="GET">
+		Flight Number: <br>
+		<input type="text" name="flightNumber" />
+		<button type="submit">Cari</button>
+	</form>
+	
 </body>
 
 </html>
