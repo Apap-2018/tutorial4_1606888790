@@ -52,4 +52,17 @@ public class PilotController {
 		pilotService.deletePilot(pilotNya);
 		return "delete";
 	}
+	
+	@RequestMapping(value = "/pilot/update/{licenseNumber}", method=RequestMethod.GET)
+	private String updatePilot(@PathVariable(value="licenseNumber") String licenseNumber, Model model) {
+		PilotModel pilotNya = pilotService.getPilotDetailByLicenseNumber(licenseNumber);
+		model.addAttribute("pilot", pilotNya);
+		return "updatePilot";
+	}
+	
+	@RequestMapping(value = "/pilot/update",method = RequestMethod.POST)
+	private String updatePilotSubmit(@ModelAttribute PilotModel pilot) {
+		pilotService.addPilot(pilot);
+		return "update";
+	}
 }
